@@ -1,11 +1,11 @@
 import React from 'react';
 import { Header, Button, Divider, Embed, Dropdown, Icon, Image } from 'semantic-ui-react'
+import { COUNTRY_OPTIONS } from './countriesData.js';
 
-  
 class Home extends React.Component {
 
     state = {
-
+      active: true
     }
 
     handleClick = () => {
@@ -79,7 +79,7 @@ class Home extends React.Component {
                         fluid
                         search
                         selection
-                        options={countryOptions}
+                        options={COUNTRY_OPTIONS}
                     />
                 </div>
 
@@ -88,11 +88,9 @@ class Home extends React.Component {
                         active={active}
                         icon='arrow circle down'
                         url='https://api.lookr.com/embed/player/1170887551/month'
-                        // id='cAfcyrqknEE'
-                        // source='youtube'
                     />
                     <Divider hidden />
-                    <Button content='Activate' icon onClick={this.handleClick} /> 
+                    <Button content='Activate' icon onClick={this.handleClick} />
                 </div>
             </div>
         )
