@@ -1,5 +1,6 @@
 .HeaderSpacing {
   padding-top: 40px;
+  background-color: antiquewhite
 }
 
 .HeaderText{
@@ -16,10 +17,14 @@
 
 .Search{
   text-align: left;
-  padding-left: 10px;
-  padding-bottom: 30px;
+  padding: 30px 40px 10px 60px;
 }
 
 .VideoPadding{
-  padding: 50px 50px 50px 50px;
+  /* padding: 50px 50px 50px 50px; */
+
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin: auto;
+  width: 1300px;
 }

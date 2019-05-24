@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header, Button, Select, Input, Divider, Embed } from 'semantic-ui-react'
-import { Dropdown } from 'semantic-ui-react'
+import { Header, Button, Divider, Embed, Dropdown, Icon, Image } from 'semantic-ui-react'
 
+  
 class Home extends React.Component {
 
     state = {
@@ -15,12 +15,6 @@ class Home extends React.Component {
     }
 
     render(){
-        
-        const options = [
-            { key: 'all', text: 'All', value: 'all' },
-            { key: 'continents', text: 'Continents', value: 'continents' },
-            { key: 'countries', text: 'Countries', value: 'countries' },
-          ]
 
           const countryOptions = [
             { key: 'af', value: 'af', flag: 'af', text: 'Afghanistan' },
@@ -71,22 +65,12 @@ class Home extends React.Component {
                 {/* <h1>Welcome to the Travel App</h1> */}
                 <div className='HeaderSpacing'>
                     <div className='HeaderText'>
-                        <Header as='h1' dividing>
-                            This is Home Page
-                            
-                            <div className='Sub'>
-                                <Header sub>Travel</Header>
-                            </div>
+                        <Header as='h2' icon textAlign='center'>
+                        <Icon name='users' circular />
+                        <Header.Content>This is the Home Page</Header.Content>
                         </Header>
+                        <Image centered size='large' src='https://react.semantic-ui.com/images/wireframe/centered-paragraph.png' />
                     </div>
-                </div>
-
-                <div className='Search'>
-                    <Input type='text' placeholder='Search...' action>
-                         <input />
-                         <Select options={options} defaultValue='all' />
-                         <Button type='submit'>Search</Button>
-                    </Input>
                 </div>
 
                 <div className='Search'>
@@ -103,8 +87,9 @@ class Home extends React.Component {
                     <Embed
                         active={active}
                         icon='arrow circle down'
-                        id='cAfcyrqknEE'
-                        source='youtube'
+                        url='https://api.lookr.com/embed/player/1170887551/month'
+                        // id='cAfcyrqknEE'
+                        // source='youtube'
                     />
                     <Divider hidden />
                     <Button content='Activate' icon onClick={this.handleClick} /> 
