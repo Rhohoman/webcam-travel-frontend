@@ -1,26 +1,38 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Home from './Home';
+import Data from './data';
+import Cities from './Cities';
+import { Route, Switch, Redirect } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  state = {
+    cities: Data
+  }
+
+  render(){
+    return (
+      <div>
+        <Switch>
+        <Route 
+            path="/home"
+            render={(routerProps) => <Home {...routerProps}/>}></Route> 
+          <Route
+            path="/cities"
+            render={(routerProps) => <Cities cities={this.state.cities} {...routerProps}/>}></Route>
+          <Route exact path="/" component={Home} />
+          <Route
+            render={() => <Redirect to='/'/>}/>
+        </Switch>
+      </div>
+    )
+  }
 }
 
 export default App;
+
+
+
+
