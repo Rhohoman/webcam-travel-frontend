@@ -5,7 +5,8 @@ import { COUNTRY_OPTIONS } from './countriesData.js';
 class Home extends React.Component {
   state = {
     active: true,
-    selectedCountry: null
+    selectedCountry: null,
+    webcams: []
   }
 
   handleClick = () => {
@@ -14,10 +15,22 @@ class Home extends React.Component {
     })
   }
 
-  handleChange = (event) => {
-    event.persist()
-    console.log(event.target.value)
+  handleChange = (e,data) => {
+    this.setState({
+      selectedCountry: data.value
+    }, () => fetch("http://localhost:3001/api/v1/search", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accepts": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+    .then(res => res.json())
+    .then(console.log)
+  )
   }
+
 
   render() {
     const { active } = this.state
@@ -41,6 +54,7 @@ class Home extends React.Component {
             fluid
             search
             selection
+            value
             options={COUNTRY_OPTIONS}
           />
         </div>
