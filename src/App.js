@@ -16,7 +16,7 @@ class App extends React.Component {
     return (
       <div>
         <Switch>
-        <Route 
+          <Route
             path="/home"
             render={(routerProps) => <Home {...routerProps}/>}></Route> 
           <Route
@@ -32,7 +32,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-
-

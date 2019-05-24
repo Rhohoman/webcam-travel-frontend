@@ -4,13 +4,19 @@ import { COUNTRY_OPTIONS } from './countriesData.js';
 
 class Home extends React.Component {
   state = {
-    active: true
+    active: true,
+    selectedCountry: null
   }
 
   handleClick = () => {
-      this.setState({
-          active: true
-      })
+    this.setState({
+        active: true
+    })
+  }
+
+  handleChange = (event) => {
+    event.persist()
+    console.log(event.target.value)
   }
 
   render() {
@@ -20,29 +26,30 @@ class Home extends React.Component {
         {/* <h1>Welcome to the Travel App</h1> */}
         <div className='HeaderSpacing'>
           <div className='HeaderText'>
-              <Header as='h2' icon textAlign='center'>
+            <Header as='h2' icon textAlign='center'>
               <Icon name='users' circular />
               <Header.Content>This is the Home Page</Header.Content>
-              </Header>
-              <Image centered size='large' src='https://react.semantic-ui.com/images/wireframe/centered-paragraph.png' />
+            </Header>
+            <Image centered size='large' src='https://react.semantic-ui.com/images/wireframe/centered-paragraph.png' />
           </div>
         </div>
 
         <div className='Search'>
           <Dropdown
-              placeholder='Select Country'
-              fluid
-              search
-              selection
-              options={COUNTRY_OPTIONS}
+            onChange={this.handleChange}
+            placeholder='Select Country'
+            fluid
+            search
+            selection
+            options={COUNTRY_OPTIONS}
           />
         </div>
 
         <div className='VideoPadding'>
           <Embed
-              active={active}
-              icon='arrow circle down'
-              url='https://api.lookr.com/embed/player/1170887551/month'
+            active={active}
+            icon='arrow circle down'
+            url='https://api.lookr.com/embed/player/1170887551/month'
           />
           <Divider hidden />
           <Button content='Activate' icon onClick={this.handleClick} />
