@@ -248,4 +248,7 @@ export const COUNTRY_OPTIONS = [
 // {"text":"Yemen","key":"YE","value":"YE","flag":"YE"},
 // {"text":"Zambia","key":"ZM","value":"ZM","flag":"ZM"},
 // {"text":"Zimbabwe","key":"ZW","value":"ZW","flag":"ZW"}
-]
+].map(country => {
+  country["flag"] = country["flag"].toLowerCase()
+  return country
+})

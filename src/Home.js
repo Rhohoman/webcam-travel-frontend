@@ -15,6 +15,7 @@ class Home extends React.Component {
     }
 
     render(){
+      console.log(COUNTRY_OPTIONS)
 
         const options = [
             { key: 'all', text: 'All', value: 'all' },
