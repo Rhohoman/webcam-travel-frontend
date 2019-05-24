@@ -1,4 +1,25 @@
-.Header {
-  text-align: center;
+.HeaderSpacing {
   padding-top: 40px;
+}
+
+.HeaderText{
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.Sub{
+  text-align: right;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.Search{
+  text-align: left;
+  padding-left: 10px;
+  padding-bottom: 30px;
+}
+
+.VideoPadding{
+  padding: 50px 50px 50px 50px;
 }
