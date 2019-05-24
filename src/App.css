@@ -17,4 +17,9 @@
 .Search{
   text-align: left;
   padding-left: 10px;
+  padding-bottom: 30px;
+}
+
+.VideoPadding{
+  padding: 50px 50px 50px 50px;
 }
