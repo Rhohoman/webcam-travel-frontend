@@ -74,7 +74,7 @@ export const COUNTRY_OPTIONS = [
 {"text":"Faroe Islands","key":"FO","value":"FO","flag":"FO"},
 // {"text":"Fiji","key":"FJ","value":"FJ","flag":"FJ"},
 {"text":"Finland","key":"FI","value":"FI","flag":"FI"},
-// {"text":"France","key":"FR","value":"FR","flag":"FR"},
+{"text":"France","key":"FR","value":"FR","flag":"FR"},
 // {"text":"French Guiana","key":"GF","value":"GF","flag":"GF"},
 {"text":"French Polynesia","key":"PF","value":"PF","flag":"PF"},
 // {"text":"French Southern Territories","key":"TF","value":"TF","flag":"TF"},

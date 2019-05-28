@@ -5,7 +5,7 @@ class CityCard extends React.Component {
 
     render(){
 
-    const { img_url, title } = this.props
+    const { img_url, title, region, player_url } = this.props
         return(
             // <div >
             //     <h3>{name}</h3>
@@ -15,11 +15,11 @@ class CityCard extends React.Component {
             // </div>
 
             <Card >
-                <Card.Header>{title}</Card.Header>
+                <Card.Header>{region}</Card.Header>
                 <Image src={img_url} wrapped ui={false} />
                 <Card.Content>
                     <Card.Description>
-                        Descriptions
+                      <a href={player_url}>{ title }</a>  
                     </Card.Description>
                 </Card.Content>
             </Card>
