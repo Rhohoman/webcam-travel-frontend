@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Button, Divider, Embed, Dropdown, Icon, Image } from 'semantic-ui-react';
+import { Header, Container, Divider, Embed, Dropdown, Icon, Image } from 'semantic-ui-react';
 import { COUNTRY_OPTIONS } from './countriesData.js';
 import { Card } from "semantic-ui-react";
 import CityCard from './CityCard';
@@ -8,7 +8,7 @@ class Home extends React.Component {
   state = {
     active: true,
     selectedCountry: null,
-    webcams: []
+    webcams: [],
   }
 
   componentDidMount = () => {
@@ -43,16 +43,24 @@ class Home extends React.Component {
 
   render() {
     const { active } = this.state
+
+
     return(
       <div>
         {/* <h1>Welcome to the Travel App</h1> */}
         <div className='HeaderSpacing'>
           <div className='HeaderText'>
             <Header as='h2' icon textAlign='center'>
-              <Icon name='users' circular />
-              <Header.Content>This is the Home Page</Header.Content>
+              <Icon name='travel' circular />
+              <Header.Content>Webcam Travel</Header.Content>
             </Header>
-            <Image centered size='large' src='https://react.semantic-ui.com/images/wireframe/centered-paragraph.png' />
+            <Container>
+              <h4>Welcome to the Webcam Travel App!</h4>
+              <p>Our purpose is to help introduce new travel locations by using public webcams that</p>
+              <p>allow you to see where you are planning to visit. Without the filler of travel brochures</p>
+              <p>we believe that showing you the condition of this area is crucial for an honest review.</p>
+            </Container>
+            {/* <Image centered size='large' src='https://react.semantic-ui.com/images/wireframe/centered-paragraph.png' /> */}
           </div>
         </div>
 
@@ -67,6 +75,7 @@ class Home extends React.Component {
         </div>
 
         <div className='Search'>
+          <Header as='h3' textAlign='center'>Search a Country!</Header>
           <Dropdown
             onChange={this.handleChange}
             placeholder='Select Country'
@@ -79,12 +88,14 @@ class Home extends React.Component {
         </div>
 
         <div className='Cities'>
-          <Header as='h2' icon textAlign='center'>
-            <Header.Content>These are the Cards</Header.Content>
-          </Header>
-          <Card.Group itemsPerRow={4} size='tiny' >
-              { this.state.webcams.map(webcam => <CityCard key={webcam.id} {...webcam}/>)}
-          </Card.Group>
+          <React.Fragment>
+            <Header as='h2' icon textAlign='center'>
+              <Header.Content>These are the Cards</Header.Content>
+            </Header>
+            <Card.Group itemsPerRow={4} size='tiny' >
+                { this.state.webcams.map(webcam => <CityCard key={webcam.id} {...webcam}/>)}
+            </Card.Group>
+          </React.Fragment>
         </div>
 
       </div>
