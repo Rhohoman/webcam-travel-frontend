@@ -18,7 +18,7 @@ class App extends React.Component {
         <Switch>
           <Route
             path="/home"
-            render={(routerProps) => <Home {...routerProps}/>}></Route> 
+            render={(routerProps) => <Home cities={this.state.cities} {...routerProps}/>}></Route> 
           <Route
             path="/cities"
             render={(routerProps) => <Cities cities={this.state.cities} {...routerProps}/>}></Route>
