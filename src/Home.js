@@ -42,10 +42,6 @@ class Home extends React.Component {
     )
   }
 
-  handleClick = (event) => {
-    console.log(event.target)
-  }
-
 
   render() {
     const { active } = this.state
@@ -102,7 +98,7 @@ class Home extends React.Component {
                 { this.state.webcams.map(webcam => <CityCard key={webcam.id} {...webcam}/>)}
             </Card.Group> : 'Sorry no webcams'} */}
             <Card.Group itemsPerRow={4} size='tiny' >
-                 { this.state.webcams.map(webcam => <CityCard handleClick={this.handleClick} key={webcam.id} {...webcam}/>)}
+                 { this.state.webcams.map(webcam => <CityCard history={this.props.history} key={webcam.id} {...webcam}/>)}
             </Card.Group>
         </div>
 

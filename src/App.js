@@ -22,7 +22,7 @@ class App extends React.Component {
       <div>
         <Switch>
 
-          <Route
+          {/* <Route
             path="/:id"
             render={(routerProps) => {
               const foundCity = this.state.cities.find(city => city.id === parseInt(routerProps.match.params.id))
@@ -30,7 +30,7 @@ class App extends React.Component {
               //put the information into this component 
             }
             }>
-          </Route>
+          </Route> */}
 
           {/* <Route
             path="/cities"
