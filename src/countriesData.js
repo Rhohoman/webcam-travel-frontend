@@ -4,7 +4,7 @@ export const COUNTRY_OPTIONS = [
 {"text":"Albania","key":"AL","value":"AL","flag":"AL"},
 // {"text":"Algeria","key":"DZ","value":"DZ","flag":"DZ"},
 // {"text":"American Samoa","key":"AS","value":"AS","flag":"AS"},
-{"text":"Andorra","key":"AD","value":"AD","flag":"AD"},
+// {"text":"Andorra","key":"AD","value":"AD","flag":"AD"},
 // {"text":"Angola","key":"AO","value":"AO","flag":"AO"},
 // {"text":"Anguilla","key":"AI","value":"AI","flag":"AI"},
 {"text":"Antarctica","key":"AQ","value":"AQ","flag":""},
