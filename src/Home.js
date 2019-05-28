@@ -89,7 +89,6 @@ class Home extends React.Component {
         </div>
 
         <div className='Cities'>
-          {this.state.selectedCountry !== null ? 
           <React.Fragment>
             <Header as='h2' icon textAlign='center'>
               <Header.Content>These are the Cards</Header.Content>
@@ -98,9 +97,6 @@ class Home extends React.Component {
                 { this.state.webcams.map(webcam => <CityCard key={webcam.id} {...webcam}/>)}
             </Card.Group>
           </React.Fragment>
-          :
-          null
-          }
         </div>
 
       </div>
