@@ -18,7 +18,6 @@ class Home extends React.Component {
   }
 
   handleChange = (e,data) => {
-    console.log(data.value)
     this.setState({
       selectedCountry: data.value
     }, () => fetch("http://localhost:3001/api/v1/search", {
@@ -43,8 +42,6 @@ class Home extends React.Component {
 
   render() {
     const { active } = this.state
-
-
     return(
       <div>
         {/* <h1>Welcome to the Travel App</h1> */}
@@ -83,6 +80,7 @@ class Home extends React.Component {
             search
             selection
             value
+            selectOnNavigation={false}
             options={COUNTRY_OPTIONS}
           />
         </div>
