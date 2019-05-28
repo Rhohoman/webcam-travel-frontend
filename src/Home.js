@@ -7,7 +7,8 @@ import CityCard from './CityCard';
 class Home extends React.Component {
   state = {
     active: true,
-    selectedCountry: null
+    selectedCountry: null,
+    filterTerm: '',
   }
 
   handleButtonClick = () => {
@@ -20,7 +21,11 @@ class Home extends React.Component {
     event.persist()
     // console.log(event.target.value)
     console.log(event.target.innerText)
-    //depending on the value of the drop down we would be able to recieve that Card
+    //depending on the value of the drop down we would be able to filter that Card
+
+    this.setState({
+      filterTerm: event.target.innerText
+    })
   }
 
   render() {
@@ -64,7 +69,7 @@ class Home extends React.Component {
             <Header.Content>These are the Cards</Header.Content>
           </Header>
           <Card.Group itemsPerRow={4} size='tiny' >
-              { this.props.cities.map(city => <CityCard key={city.id} {...city}/>)}
+              { this.props.cities.filter(city => city.name.toLowerCase().includes(this.state.filterTerm.toLowerCase())).map(city => <CityCard key={city.id} {...city}/>)}
           </Card.Group>
         </div>
 
