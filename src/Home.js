@@ -18,6 +18,7 @@ class Home extends React.Component {
   }
 
   handleChange = (e,data) => {
+    console.log(data.value)
     this.setState({
       selectedCountry: data.value
     }, () => fetch("http://localhost:3001/api/v1/search", {
@@ -29,7 +30,8 @@ class Home extends React.Component {
       body: JSON.stringify(this.state)
     })
     .then(res => res.json())
-    .then(webcams => this.setWebcamsState(webcams))
+    .then(webcams => this.setWebcamsState(webcams)
+      )
     )
   }
 
