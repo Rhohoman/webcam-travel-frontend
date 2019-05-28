@@ -27,8 +27,14 @@ class Home extends React.Component {
       body: JSON.stringify(this.state)
     })
     .then(res => res.json())
-    .then(console.log)
-  )
+    .then(webcams => this.setWebcamsState(webcams))
+    )
+  }
+
+  setWebcamsState = (webcams) => {
+    this.setState({
+      webcams
+    }, () => console.log(this.state.webcams))
   }
 
 
