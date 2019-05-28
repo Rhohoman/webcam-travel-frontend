@@ -11,10 +11,10 @@ class Home extends React.Component {
     webcams: [],
   }
 
-  handleButtonClick = () => {
-    this.setState({
-        active: true
-    })
+  componentDidMount = () => {
+    fetch("http://localhost:3001/api/v1/featured")
+    .then(res => res.json())
+    .then(webcams => this.setState({webcams}))
   }
 
   handleChange = (e,data) => {
@@ -30,8 +30,7 @@ class Home extends React.Component {
       body: JSON.stringify(this.state)
     })
     .then(res => res.json())
-    .then(webcams => this.setWebcamsState(webcams)
-      )
+    .then(webcams => this.setWebcamsState(webcams))
     )
   }
 
