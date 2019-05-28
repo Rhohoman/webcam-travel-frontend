@@ -7,8 +7,8 @@ class CityCard extends React.Component {
 
     const { img_url, title, region, player_url } = this.props
         return(
-            <Card >
-                <Card.Header>{region ? region : 'n/a'}</Card.Header>
+            <Card onClick={() => this.props.handleClick()}>
+                <Card.Header>{region ? region : 'N/A'}</Card.Header>
                 <Image src={img_url} wrapped ui={false} />
                 <Card.Content>
                     <Card.Description>

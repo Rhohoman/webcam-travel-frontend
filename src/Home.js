@@ -18,7 +18,7 @@ class Home extends React.Component {
   }
 
   handleChange = (e,data) => {
-    console.log(data.value)
+    // console.log(data.value)
     this.setState({
       selectedCountry: data.value
     }, () => fetch("http://localhost:3001/api/v1/search", {
@@ -37,7 +37,13 @@ class Home extends React.Component {
   setWebcamsState = (webcams) => {
     this.setState({
       webcams
-    }, () => console.log(this.state.webcams))
+    }
+    // ,() => console.log(this.state.webcams)
+    )
+  }
+
+  handleClick = (event) => {
+    console.log(event.target)
   }
 
 
@@ -45,6 +51,7 @@ class Home extends React.Component {
     const { active } = this.state
 
     console.log(this.state.selectedCountry)
+    console.log(this.state.webcams)
     return(
       <div>
         {/* <h1>Welcome to the Travel App</h1> */}
@@ -87,16 +94,16 @@ class Home extends React.Component {
           />
         </div>
 
-        <div className='Cities'>
-          <React.Fragment>
+        <div className='Countries' >
             <Header as='h2' icon textAlign='center'>
-              <Header.Content>Featured: {this.state.selectedCountry === null ? null : this.state.selectedCountry}</Header.Content>
-              {/* <Header.Content>{this.state.selectCountry === '' ? 'Featured' : this.state.selectedCountry }</Header.Content> */}
+              <Header.Content>{this.state.selectedCountry === null ? 'Featured:  ' : 'Featured: ' + this.state.selectedCountry}</Header.Content>
             </Header>
-            <Card.Group itemsPerRow={4} size='tiny' >
+            {/* {this.state.webcams !== null ? <Card.Group itemsPerRow={4} size='tiny' >
                 { this.state.webcams.map(webcam => <CityCard key={webcam.id} {...webcam}/>)}
+            </Card.Group> : 'Sorry no webcams'} */}
+            <Card.Group itemsPerRow={4} size='tiny' >
+                 { this.state.webcams.map(webcam => <CityCard handleClick={this.handleClick} key={webcam.id} {...webcam}/>)}
             </Card.Group>
-          </React.Fragment>
         </div>
 
       </div>

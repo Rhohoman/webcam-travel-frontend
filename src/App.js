@@ -13,6 +13,10 @@ class App extends React.Component {
     cities: Data
   }
 
+
+  // call back to get the individual information
+
+
   render(){
     return (
       <div>
@@ -21,11 +25,9 @@ class App extends React.Component {
           <Route
             path="/:id"
             render={(routerProps) => {
-
               const foundCity = this.state.cities.find(city => city.id === parseInt(routerProps.match.params.id))
-              // console.log(foundCity)
-              // return <CityCard img_url={foundCity.image_url} title={foundCity.name} />
               return <DisplayPage {...foundCity}/>
+              //put the information into this component 
             }
             }>
           </Route>
@@ -37,7 +39,7 @@ class App extends React.Component {
 
           <Route
             path="/home"
-            render={(routerProps) => <Home cities={this.state.cities} {...routerProps}/>}>
+            render={(routerProps) => <Home {...routerProps}/>}>
           </Route>
 
           <Route exact path="/" component={Home} />

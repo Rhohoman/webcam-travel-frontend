@@ -10,7 +10,7 @@ export const COUNTRY_OPTIONS = [
 {"text":"Antarctica","key":"AQ","value":"AQ","flag":""},
 // {"text":"Antigua and Barbuda","key":"AG","value":"AG","flag":"AG"},
 {"text":"Argentina","key":"AR","value":"AR","flag":"AR"},
-{"text":"Armenia","key":"AM","value":"AM","flag":"AM"},
+// {"text":"Armenia","key":"AM","value":"AM","flag":"AM"},
 {"text":"Aruba","key":"AW","value":"AW","flag":"AW"},
 {"text":"Australia","key":"AU","value":"AU","flag":"AU"},
 {"text":"Austria","key":"AT","value":"AT","flag":"AT"},
