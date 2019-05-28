@@ -28,3 +28,9 @@
   margin: auto;
   width: 1300px;
 }
+
+.Cities{
+  text-align: center;
+  /* margin-left: 500px; */
+  padding: 100px 200px 25px 200px;
+}

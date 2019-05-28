@@ -1,6 +1,8 @@
 import React from 'react';
-import { Header, Button, Divider, Embed, Dropdown, Icon, Image } from 'semantic-ui-react'
+import { Header, Button, Divider, Embed, Dropdown, Icon, Image } from 'semantic-ui-react';
 import { COUNTRY_OPTIONS } from './countriesData.js';
+import { Card } from "semantic-ui-react";
+import CityCard from './CityCard';
 
 class Home extends React.Component {
   state = {
@@ -9,7 +11,7 @@ class Home extends React.Component {
     webcams: []
   }
 
-  handleClick = () => {
+  handleButtonClick = () => {
     this.setState({
         active: true
     })
@@ -53,6 +55,16 @@ class Home extends React.Component {
           </div>
         </div>
 
+        <div className='VideoPadding'>
+          <Embed
+            active={active}
+            icon='arrow circle down'
+            url='https://api.lookr.com/embed/player/1170887551/month'
+          />
+          <Divider hidden />
+          {/* <Button content='Activate' icon onClick={this.handleButtonClick} /> */}
+        </div>
+
         <div className='Search'>
           <Dropdown
             onChange={this.handleChange}
@@ -65,15 +77,15 @@ class Home extends React.Component {
           />
         </div>
 
-        <div className='VideoPadding'>
-          <Embed
-            active={active}
-            icon='arrow circle down'
-            url='https://api.lookr.com/embed/player/1170887551/month'
-          />
-          <Divider hidden />
-          <Button content='Activate' icon onClick={this.handleClick} />
+        <div className='Cities'>
+          <Header as='h2' icon textAlign='center'>
+            <Header.Content>These are the Cards</Header.Content>
+          </Header>
+          <Card.Group itemsPerRow={4} size='tiny' >
+              { this.state.webcams.map(webcam => <CityCard key={webcam.id} {...webcam}/>)}
+          </Card.Group>
         </div>
+
       </div>
     )
   }
