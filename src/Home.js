@@ -7,6 +7,7 @@ import CityCard from './CityCard';
 class Home extends React.Component {
   state = {
     active: true,
+    selectedCountry: null,
     webcams: []
   }
 
