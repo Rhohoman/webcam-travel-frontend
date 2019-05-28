@@ -79,7 +79,7 @@ class Home extends React.Component {
             fluid
             search
             selection
-            value
+            value={this.state.selectedCountry}
             selectOnNavigation={false}
             options={COUNTRY_OPTIONS}
           />
