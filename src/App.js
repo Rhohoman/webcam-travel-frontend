@@ -38,8 +38,8 @@ class App extends React.Component {
             path="/:id"
             render={(routerProps) => {
               const foundWebcam = this.state.tempWebcams.find(webcam => webcam.id === parseInt(routerProps.match.params.id))
-              return <DisplayPage {...foundWebcam}/>
-              //put the information into this component 
+              return <DisplayPage {...foundWebcam} {...routerProps}/>
+              //put the information into this component
             }
             }>
           </Route>

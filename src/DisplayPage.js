@@ -15,7 +15,7 @@ class DisplayPage extends React.Component {
     }
 
     render() {
-      console.log(this.state.specificWebcam)
+      console.log(this.props)
       return(
         <React.Fragment >
           { this.state.specificWebcam ?
