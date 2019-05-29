@@ -9,7 +9,7 @@ class NavHeader extends React.Component{
       <div className='HeaderSpacing'>
         <div className='HeaderText'>
           <Header as='h2' icon textAlign='center'>
-            <a href="http://localhost:3000/"><Icon name='travel' circular /></a>
+            <a href="http://localhost:3000/" className="suitcase"><Icon name='travel' circular /></a>
             <Header.Content>Webcam Travel</Header.Content>
           </Header>
           {pathname === "/" ? <HomeText /> : null}
