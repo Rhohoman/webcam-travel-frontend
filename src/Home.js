@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Divider, Embed, Dropdown, Card } from 'semantic-ui-react';
+import { Header, Divider, Embed, Dropdown, Card, Container } from 'semantic-ui-react';
 import { COUNTRY_OPTIONS } from './countriesData.js';
 import WebcamCard from './WebcamCard';
 
@@ -7,29 +7,36 @@ import WebcamCard from './WebcamCard';
 class Home extends React.Component {
   state = {
     selectedCountry: null,
-    webcams: []
+    webcams: [],
+    displayWebcam: null
   }
 
   componentDidMount() {
     fetch('http://localhost:3001/api/v1/featured')
     .then(res => res.json())
     .then(webcams => this.setState({
-      webcams
+      webcams,
+      displayWebcam: webcams[Math.floor(Math.random()*webcams.length)]
     }))
   }
 
   render() {
-    const {selectedCountry} = this.state
+    const {selectedCountry, displayWebcam} = this.state
     return(
       <React.Fragment>
-        <div className='VideoPadding'>
-          <Embed
-            active={true}
-            icon='arrow circle down'
-            url='https://api.lookr.com/embed/player/1170887551/month'
-          />
-          <Divider hidden />
-        </div>
+        {displayWebcam ?
+          <div className='VideoPadding'>
+            <Embed
+              active={true}
+              icon='arrow circle down'
+              url={displayWebcam.player_url}
+            />
+          <Container><a href={`/${displayWebcam.id}`}>{displayWebcam.title}</a></Container>
+          </div>
+          :
+          <h1>loading</h1>
+        }
+
 
         <div className='Search'>
           <Header as='h3' textAlign='center'>Search a Country!</Header>
