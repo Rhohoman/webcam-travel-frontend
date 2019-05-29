@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Image, Header } from "semantic-ui-react";
+import { Container, Image, Header, Divider, Embed, } from "semantic-ui-react";
 
 class DisplayPage extends React.Component {
     state= {
@@ -27,7 +27,14 @@ class DisplayPage extends React.Component {
                       {this.state.specificWebcam.title}
                     </Header>
                   </div>
-                  <Image src={this.state.specificWebcam.img_url} ui={false}/>
+                  <div className='VideoPadding'>
+                    <Embed
+                      active={true}
+                      icon='arrow circle down'
+                      url={`https://api.lookr.com/embed/player/${this.state.specificWebcam.api_id}/month`}
+                    />
+                    <Divider hidden />
+                  </div>
                 </div>
               </Container>
             </div>

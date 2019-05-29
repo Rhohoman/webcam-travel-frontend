@@ -1,7 +1,6 @@
 import React from 'react';
-import { Header, Container, Divider, Embed, Dropdown, Icon, Image } from 'semantic-ui-react';
+import { Header, Container, Divider, Embed, Dropdown, Icon, Image, Card } from 'semantic-ui-react';
 import { COUNTRY_OPTIONS } from './countriesData.js';
-import { Card } from "semantic-ui-react";
 import CityCard from './CityCard';
 
 class Home extends React.Component {
