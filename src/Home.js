@@ -1,7 +1,7 @@
 import React from 'react';
 import { Header, Divider, Embed, Dropdown, Card } from 'semantic-ui-react';
 import { COUNTRY_OPTIONS } from './countriesData.js';
-import CityCard from './CityCard';
+import WebcamCard from './WebcamCard';
 
 
 class Home extends React.Component {
@@ -17,27 +17,6 @@ class Home extends React.Component {
       webcams
     }))
   }
-
-  handleChange = (e,data) => {
-    this.setState({
-      selectedCountry: data.value
-    }, () => fetch("http://localhost:3001/api/v1/search", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accepts": "application/json"
-      },
-      body: JSON.stringify(this.state)
-    })
-    .then(res => res.json())
-    .then(webcams => this.setState({webcams}))
-    )
-  }
-
-  renderWebcamCards = () => {
-    return this.state.webcams.map(webcam => <CityCard history={this.props.history} key={webcam.id} {...webcam}/>)
-  }
-
 
   render() {
     return(
@@ -67,7 +46,7 @@ class Home extends React.Component {
 
         <div className='Countries' >
             <Header as='h2' icon textAlign='center'>
-              <Header.Content>{this.state.selectedCountry === null ? 'Featured:  ' : 'Featured: ' + this.state.selectedCountry}</Header.Content>
+              <Header.Content>{this.state.selectedCountry === null ? 'Featured:  ' : this.getCountryName("code")}</Header.Content>
             </Header>
             <Card.Group itemsPerRow={4} size='tiny' >
                  {this.state.webcams ? this.renderWebcamCards() : <h1>loading</h1>}
@@ -75,6 +54,30 @@ class Home extends React.Component {
         </div>
       </React.Fragment>
     )
+  }
+
+  getCountryName = (code) => {
+    console.log(COUNTRY_OPTIONS)
+  }
+
+  handleChange = (e,data) => {
+    this.setState({
+      selectedCountry: data.value
+    }, () => fetch("http://localhost:3001/api/v1/search", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accepts": "application/json"
+      },
+      body: JSON.stringify(this.state)
+    })
+    .then(res => res.json())
+    .then(webcams => this.setState({webcams}))
+    )
+  }
+
+  renderWebcamCards = () => {
+    return this.state.webcams.map(webcam => <WebcamCard key={webcam.id} {...webcam}/>)
   }
 }
 

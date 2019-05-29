@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Image } from "semantic-ui-react";
 
-class CityCard extends React.Component {
+class WebcamCard extends React.Component {
 
 
   render(){
@@ -20,4 +20,4 @@ class CityCard extends React.Component {
   }
 }
 
-export default CityCard
+export default WebcamCard
