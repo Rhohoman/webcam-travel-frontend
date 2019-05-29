@@ -2,6 +2,7 @@ import React from 'react';
 import { Header, Divider, Embed, Dropdown, Card, Container } from 'semantic-ui-react';
 import { COUNTRY_OPTIONS } from './countriesData.js';
 import WebcamCard from './WebcamCard';
+import OurLoader from './Loader'
 
 
 class Home extends React.Component {
@@ -34,7 +35,7 @@ class Home extends React.Component {
           <Container><a href={`/${displayWebcam.id}`}>{displayWebcam.title}</a></Container>
           </div>
           :
-          <h1>loading</h1>
+          <OurLoader/>
         }
 
 
@@ -57,7 +58,7 @@ class Home extends React.Component {
               <Header.Content>{selectedCountry === null ? 'Featured:  ' : this.getCountryName(selectedCountry)}</Header.Content>
             </Header>
             <Card.Group itemsPerRow={4} size='tiny' >
-                 {this.state.webcams ? this.renderWebcamCards() : <h1>loading</h1>}
+                 {this.state.webcams ? this.renderWebcamCards() : <OurLoader/>}
             </Card.Group>
         </div>
       </React.Fragment>

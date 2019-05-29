@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Header, Divider, Embed, } from "semantic-ui-react";
+import OurLoader from './Loader'
 
 class DisplayPage extends React.Component {
     state= {
@@ -39,7 +40,7 @@ class DisplayPage extends React.Component {
               </Container>
             </div>
             :
-            <h1>Loading</h1>
+            <OurLoader/>
           }
         </React.Fragment>
       )
