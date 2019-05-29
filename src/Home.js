@@ -19,6 +19,7 @@ class Home extends React.Component {
   }
 
   render() {
+    const {selectedCountry} = this.state
     return(
       <React.Fragment>
         <div className='VideoPadding'>
@@ -46,7 +47,7 @@ class Home extends React.Component {
 
         <div className='Countries' >
             <Header as='h2' icon textAlign='center'>
-              <Header.Content>{this.state.selectedCountry === null ? 'Featured:  ' : this.getCountryName("code")}</Header.Content>
+              <Header.Content>{selectedCountry === null ? 'Featured:  ' : this.getCountryName(selectedCountry)}</Header.Content>
             </Header>
             <Card.Group itemsPerRow={4} size='tiny' >
                  {this.state.webcams ? this.renderWebcamCards() : <h1>loading</h1>}
@@ -57,7 +58,7 @@ class Home extends React.Component {
   }
 
   getCountryName = (code) => {
-    console.log(COUNTRY_OPTIONS)
+    return COUNTRY_OPTIONS.find(country => country.key === code).text
   }
 
   handleChange = (e,data) => {

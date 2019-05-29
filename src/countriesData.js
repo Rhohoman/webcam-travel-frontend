@@ -218,7 +218,7 @@ export const COUNTRY_OPTIONS = [
 // {"text":"Syrian Arab Republic","key":"SY","value":"SY","flag":"SY"},
 {"text":"Taiwan, Province of China","key":"TW","value":"TW","flag":"TW"},
 // {"text":"Tajikistan","key":"TJ","value":"TJ","flag":"TJ"},
-{"text":"Tanzania, United Republic of","key":"TZ","value":"TZ","flag":"TZ"},
+// {"text":"Tanzania, United Republic of","key":"TZ","value":"TZ","flag":"TZ"},
 {"text":"Thailand","key":"TH","value":"TH","flag":"TH"},
 // {"text":"Timor-Leste","key":"TL","value":"TL","flag":"TL"},
 // {"text":"Togo","key":"TG","value":"TG","flag":"TG"},

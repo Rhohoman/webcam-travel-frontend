@@ -5,10 +5,10 @@ class WebcamCard extends React.Component {
 
 
   render(){
-  const { img_url, title, region, id } = this.props
+  const { img_url, title, region, id, country } = this.props
     return(
       <Card onClick={this.handleClick} href={`http://localhost:3000/${id}`}>
-        <Card.Header>{region ? region : 'N/A'}</Card.Header>
+        <Card.Header>{region ? region : country}</Card.Header>
         <Image src={img_url} wrapped ui={false} />
         <Card.Content>
           <Card.Description>
