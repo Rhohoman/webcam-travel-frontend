@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Image, Header, Divider, Embed, } from "semantic-ui-react";
+import { Container, Header, Divider, Embed, } from "semantic-ui-react";
 
 class DisplayPage extends React.Component {
     state= {

@@ -1,17 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Home from './Home';
-import Data from './data';
-import Cities from './Cities';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import DisplayPage from './DisplayPage';
+import NavHeader from './NavHeader';
 
 class App extends React.Component {
-
   render(){
     return (
       <div>
+        <Route path="/"
+          component={ NavHeader }/>
         <Switch>
           <Route path="/:id"
             render={(routerProps) => <DisplayPage {...routerProps}/>}/>

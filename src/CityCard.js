@@ -5,7 +5,7 @@ class CityCard extends React.Component {
 
 
   render(){
-  const { img_url, title, region, player_url, id } = this.props
+  const { img_url, title, region, id } = this.props
     return(
       <Card onClick={this.handleClick} href={`http://localhost:3000/${id}`}>
         <Card.Header>{region ? region : 'N/A'}</Card.Header>

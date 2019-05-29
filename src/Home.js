@@ -1,7 +1,8 @@
 import React from 'react';
-import { Header, Container, Divider, Embed, Dropdown, Icon, Image, Card } from 'semantic-ui-react';
+import { Header, Divider, Embed, Dropdown, Card } from 'semantic-ui-react';
 import { COUNTRY_OPTIONS } from './countriesData.js';
 import CityCard from './CityCard';
+
 
 class Home extends React.Component {
   state = {
@@ -39,24 +40,8 @@ class Home extends React.Component {
 
 
   render() {
-    console.log(this.props)
     return(
-      <div>
-        <div className='HeaderSpacing'>
-          <div className='HeaderText'>
-            <Header as='h2' icon textAlign='center'>
-              <Icon name='travel' circular />
-              <Header.Content>Webcam Travel</Header.Content>
-            </Header>
-            <Container>
-              <h4>Welcome to the Webcam Travel App!</h4>
-              <p>Our purpose is to help introduce new travel locations by using public webcams that</p>
-              <p>allow you to see where you are planning to visit. Without the filler of travel brochures</p>
-              <p>we believe that showing you the condition of this area is crucial for an honest review.</p>
-            </Container>
-          </div>
-        </div>
-
+      <React.Fragment>
         <div className='VideoPadding'>
           <Embed
             active={true}
@@ -88,8 +73,7 @@ class Home extends React.Component {
                  {this.state.webcams ? this.renderWebcamCards() : <h1>loading</h1>}
             </Card.Group>
         </div>
-
-      </div>
+      </React.Fragment>
     )
   }
 }
