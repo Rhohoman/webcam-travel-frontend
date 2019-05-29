@@ -7,7 +7,7 @@ export const COUNTRY_OPTIONS = [
 // {"text":"Andorra","key":"AD","value":"AD","flag":"AD"},
 // {"text":"Angola","key":"AO","value":"AO","flag":"AO"},
 // {"text":"Anguilla","key":"AI","value":"AI","flag":"AI"},
-{"text":"Antarctica","key":"AQ","value":"AQ","flag":""},
+// {"text":"Antarctica","key":"AQ","value":"AQ","flag":""},
 // {"text":"Antigua and Barbuda","key":"AG","value":"AG","flag":"AG"},
 {"text":"Argentina","key":"AR","value":"AR","flag":"AR"},
 // {"text":"Armenia","key":"AM","value":"AM","flag":"AM"},

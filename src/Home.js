@@ -18,7 +18,6 @@ class Home extends React.Component {
   }
 
   handleChange = (e,data) => {
-    // console.log(data.value)
     this.setState({
       selectedCountry: data.value
     }, () => fetch("http://localhost:3001/api/v1/search", {
@@ -45,9 +44,6 @@ class Home extends React.Component {
 
   render() {
     const { active } = this.state
-
-    console.log(this.state.selectedCountry)
-    console.log(this.state.webcams)
     return(
       <div>
         {/* <h1>Welcome to the Travel App</h1> */}
@@ -85,7 +81,8 @@ class Home extends React.Component {
             fluid
             search
             selection
-            value
+            value={this.state.selectedCountry}
+            selectOnNavigation={false}
             options={COUNTRY_OPTIONS}
           />
         </div>
