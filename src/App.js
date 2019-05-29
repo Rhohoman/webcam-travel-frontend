@@ -10,11 +10,23 @@ import DisplayPage from './DisplayPage';
 class App extends React.Component {
 
   state = {
-    cities: Data
+    cities: Data,
+    tempWebcams: [],
+    tempid: 0,
   }
 
 
   // call back to get the individual information
+
+  selectWebcamId = (webcams, id) => {
+    //here I would find the webcam I want
+    // console.log('Ive got webcams',webcams)
+    // console.log('Ive got id', id)
+    this.setState({
+      tempWebcams: webcams,
+      tempid: id,
+    },() => console.log(this.state))
+  }
 
 
   render(){
@@ -22,15 +34,15 @@ class App extends React.Component {
       <div>
         <Switch>
 
-          {/* <Route
+          <Route
             path="/:id"
             render={(routerProps) => {
-              const foundCity = this.state.cities.find(city => city.id === parseInt(routerProps.match.params.id))
-              return <DisplayPage {...foundCity}/>
+              const foundWebcam = this.state.tempWebcams.find(webcam => webcam.id === parseInt(routerProps.match.params.id))
+              return <DisplayPage {...foundWebcam}/>
               //put the information into this component 
             }
             }>
-          </Route> */}
+          </Route>
 
           {/* <Route
             path="/cities"
@@ -39,7 +51,7 @@ class App extends React.Component {
 
           <Route
             path="/home"
-            render={(routerProps) => <Home {...routerProps}/>}>
+            render={(routerProps) => <Home selectWebcamId={this.selectWebcamId} {...routerProps}/>}>
           </Route>
 
           <Route exact path="/" component={Home} />

@@ -44,6 +44,8 @@ class Home extends React.Component {
 
   render() {
     const { active } = this.state
+
+    console.log(this.props.selectWebcamId)
     return(
       <div>
         {/* <h1>Welcome to the Travel App</h1> */}
@@ -95,7 +97,7 @@ class Home extends React.Component {
                 { this.state.webcams.map(webcam => <CityCard key={webcam.id} {...webcam}/>)}
             </Card.Group> : 'Sorry no webcams'} */}
             <Card.Group itemsPerRow={4} size='tiny' >
-                 { this.state.webcams.map(webcam => <CityCard history={this.props.history} key={webcam.id} {...webcam}/>)}
+                 { this.state.webcams.map(webcam => <CityCard webcams={this.state.webcams} selectWebcamId={this.props.selectWebcamId} history={this.props.history} key={webcam.id} {...webcam}/>)}
             </Card.Group>
         </div>
 
