@@ -6,15 +6,7 @@ import CityCard from './CityCard';
 
 class Home extends React.Component {
   state = {
-    active: true,
     selectedCountry: null,
-    webcams: [],
-  }
-
-  componentDidMount = () => {
-    fetch("http://localhost:3001/api/v1/featured")
-    .then(res => res.json())
-    .then(webcams => this.setState({webcams}))
   }
 
   handleChange = (e,data) => {
@@ -33,22 +25,15 @@ class Home extends React.Component {
     )
   }
 
-  setWebcamsState = (webcams) => {
-    this.setState({
-      webcams
-    }
-    // ,() => console.log(this.state.webcams)
-    )
+  renderWebcamCards = () => {
+    return this.props.webcams.map(webcam => <CityCard webcams={this.state.webcams} selectWebcamId={this.props.selectWebcamId} history={this.props.history} key={webcam.id} {...webcam}/>)
   }
 
 
   render() {
-    const { active } = this.state
-
-    console.log(this.props.selectWebcamId)
+    console.log("home props", this.props)
     return(
       <div>
-        {/* <h1>Welcome to the Travel App</h1> */}
         <div className='HeaderSpacing'>
           <div className='HeaderText'>
             <Header as='h2' icon textAlign='center'>
@@ -61,18 +46,16 @@ class Home extends React.Component {
               <p>allow you to see where you are planning to visit. Without the filler of travel brochures</p>
               <p>we believe that showing you the condition of this area is crucial for an honest review.</p>
             </Container>
-            {/* <Image centered size='large' src='https://react.semantic-ui.com/images/wireframe/centered-paragraph.png' /> */}
           </div>
         </div>
 
         <div className='VideoPadding'>
           <Embed
-            active={active}
+            active={true}
             icon='arrow circle down'
             url='https://api.lookr.com/embed/player/1170887551/month'
           />
           <Divider hidden />
-          {/* <Button content='Activate' icon onClick={this.handleButtonClick} /> */}
         </div>
 
         <div className='Search'>
@@ -93,11 +76,8 @@ class Home extends React.Component {
             <Header as='h2' icon textAlign='center'>
               <Header.Content>{this.state.selectedCountry === null ? 'Featured:  ' : 'Featured: ' + this.state.selectedCountry}</Header.Content>
             </Header>
-            {/* {this.state.webcams !== null ? <Card.Group itemsPerRow={4} size='tiny' >
-                { this.state.webcams.map(webcam => <CityCard key={webcam.id} {...webcam}/>)}
-            </Card.Group> : 'Sorry no webcams'} */}
             <Card.Group itemsPerRow={4} size='tiny' >
-                 { this.state.webcams.map(webcam => <CityCard webcams={this.state.webcams} selectWebcamId={this.props.selectWebcamId} history={this.props.history} key={webcam.id} {...webcam}/>)}
+                 {this.renderWebcamCards()}
             </Card.Group>
         </div>
 
