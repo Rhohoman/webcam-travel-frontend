@@ -27,7 +27,7 @@ class DisplayPage extends React.Component {
                       {this.state.specificWebcam.title}
                     </Header>
                   </div>
-                  <div className='VideoPadding'>
+                  <div>
                     <Embed
                       active={true}
                       icon='arrow circle down'

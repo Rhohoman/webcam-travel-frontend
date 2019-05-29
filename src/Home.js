@@ -6,6 +6,15 @@ import CityCard from './CityCard';
 class Home extends React.Component {
   state = {
     selectedCountry: null,
+    webcams: []
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3001/api/v1/featured')
+    .then(res => res.json())
+    .then(webcams => this.setState({
+      webcams
+    }))
   }
 
   handleChange = (e,data) => {
@@ -20,17 +29,17 @@ class Home extends React.Component {
       body: JSON.stringify(this.state)
     })
     .then(res => res.json())
-    .then(webcams => this.setWebcamsState(webcams))
+    .then(webcams => this.setState({webcams}))
     )
   }
 
   renderWebcamCards = () => {
-    return this.props.webcams.map(webcam => <CityCard webcams={this.state.webcams} selectWebcamId={this.props.selectWebcamId} history={this.props.history} key={webcam.id} {...webcam}/>)
+    return this.state.webcams.map(webcam => <CityCard history={this.props.history} key={webcam.id} {...webcam}/>)
   }
 
 
   render() {
-    console.log("home props", this.props)
+    console.log(this.props)
     return(
       <div>
         <div className='HeaderSpacing'>
@@ -76,7 +85,7 @@ class Home extends React.Component {
               <Header.Content>{this.state.selectedCountry === null ? 'Featured:  ' : 'Featured: ' + this.state.selectedCountry}</Header.Content>
             </Header>
             <Card.Group itemsPerRow={4} size='tiny' >
-                 {this.renderWebcamCards()}
+                 {this.state.webcams ? this.renderWebcamCards() : <h1>loading</h1>}
             </Card.Group>
         </div>
 

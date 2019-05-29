@@ -9,18 +9,6 @@ import DisplayPage from './DisplayPage';
 
 class App extends React.Component {
 
-  state = {
-    webcams: []
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:3001/api/v1/featured')
-    .then(res => res.json())
-    .then(webcams => this.setState({
-      webcams
-    }))
-  }
-
   render(){
     return (
       <div>
@@ -29,7 +17,7 @@ class App extends React.Component {
             render={(routerProps) => <DisplayPage {...routerProps}/>}/>
 
           <Route path="/"
-            render={(routerProps) => <Home webcams={this.state.webcams} {...routerProps}/>}/>
+            render={(routerProps) => <Home {...routerProps}/>}/>
 
           <Route render={() => <Redirect to='/'/>}/>
         </Switch>
